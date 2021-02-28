@@ -1,32 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "_main.jinja" %}
 
-<head>
-  <title> Welcome to Markdown blog</title>
-  <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/main.css') }}>
-</head>
+{% block title %} Toto je o about alebo Welcome to Markdown block {% endblock %}
 
-<body>
-<header>
-  <h1> Toto je nadpis ... What is Lorem Ipsum? </h1>
-</header>
-
-<nav>
-  <ul class=nav>
-    <li> <a href="#">About</a></li>
-    <li> <a href="#">Articles</a></li>
-    <li> <a href="#">Admin</a></li>
-  </ul>
-</nav>
-
-<main>
-toto je about
-</main>
-
-<footer>
-  <p>
-    (c) 2021 Flask Master
-  </p>
-</footer>
-</body>
-</html>
+{% block main %}
+Nazdar toto je o pisani vo flasku.
+{% endblock %}
