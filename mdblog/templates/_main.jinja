@@ -2,31 +2,20 @@
 <html lang="en">
 
 <head>
-  <title> {% block title %} {% endblock%} </title>
-
-  <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/main.css') }}>
+  <title> {% block title %} {% endblock %} </title>
+  {% include "_head.jinja" %}
 </head>
 
 <body>
 <header>
-  <h1> <a href="{{url_for("view_welcome_page")}}"> What is Lorem Ipsum? </a></h1>
+  <h1> <a href="{{ url_for("view_welcome_page") }}"> What is Lorem Ipsum? </a></h1>
 </header>
+  {% include "_nav.jinja" %}
 
-<nav>
-  <ul class=nav>
-    <li> <a href="{{url_for("view_about")}}"> About </a></li>
-    <li> <a href="{{url_for("view_articles")}}"> Articles </a></li>
-    <li> <a href="{{url_for("view_admin")}}"> Admin </a></li>
-  </ul>
-</nav>
-
-<main> {% block main %} {% endblock %}
+<main>
+  {% block main %} {% endblock %}
 </main>
 
-<footer>
-  <p>
-    (c) 2021 Flask Master
-  </p>
-</footer>
+{% include "_footer.jinja" %}
 </body>
 </html>
