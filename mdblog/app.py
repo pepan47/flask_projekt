@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import request
 
 from .database import articles
 
@@ -27,3 +28,17 @@ def view_article(art_id):
     if article:
         return render_template("article.jinja", article=article)
     return render_template("article_not_found.jinja", art_id=art_id)
+
+@flask_app.route("/login/", methods = ["GET"])
+def view_login():
+    return render_template("login.jinja")
+
+@flask_app.route("/login/", methods = ["POST"])
+def view_user():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        if username == "admin" and password == "admin":
+            return "Ok"
+        else:
+            return "Not Ok"
